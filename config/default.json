@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://damodar96:damodar123@devconnect.sn5xrtc.mongodb.net/?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://damodar96:damodar123@devconnect.sn5xrtc.mongodb.net/?retryWrites=true&w=majority",
+    "jwtSecret": "mysecrettoken"
 }
