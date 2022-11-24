@@ -8,12 +8,12 @@ const connectDB = async () => {
         await mongoose.connect(db, {
             useNewUrlParser: true,
         });
-        console.log('MongoDB Connected...')
+        console.log('MongoDB Connected...');
     } catch (err) {
         console.error(err.message);
         //Exit process
         process.exit(1);
     }
-}
+};
 
 module.exports = connectDB;
