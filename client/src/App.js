@@ -12,6 +12,8 @@ import { loadUser } from './actions/auth';
 import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
+import Dashboard from './components/dashboard/Dashboard';
+import PrivateRoute from './components/routing/PrivateRoute';
 
 if (localStorage.token) {
     setAuthToken(localStorage.token);
@@ -42,6 +44,11 @@ const App = () => {
                                 exact
                                 path='/login'
                                 element={<Login />}
+                            ></Route>
+                            <Route
+                                exact
+                                path='/dashboard'
+                                element={<PrivateRoute><Dashboard /></PrivateRoute>}
                             ></Route>
                         </Routes>
                     </section>
