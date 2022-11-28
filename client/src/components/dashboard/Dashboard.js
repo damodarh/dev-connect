@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../Layout/Spinner';
 import { getCurrentProfile } from '../../actions/profile';
 import { Link } from 'react-router-dom';
+import DashboardActions from './DashboardActions';
 
 const Dashboard = ({
     getCurrentProfile,
@@ -11,7 +12,7 @@ const Dashboard = ({
     profile: { profile, loading },
 }) => {
     useEffect(() => {
-        console.log('mounted')
+        console.log('mounted');
         getCurrentProfile();
     }, []);
     return loading && profile === null ? (
@@ -23,7 +24,9 @@ const Dashboard = ({
                 <i className='fas fa-user'></i>Welcome {user && user.name}
             </p>
             {profile !== null ? (
-                <>has</>
+                <>
+                    <DashboardActions />
+                </>
             ) : (
                 <>
                     <p>
