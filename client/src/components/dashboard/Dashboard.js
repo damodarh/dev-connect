@@ -11,6 +11,7 @@ const Dashboard = ({
     profile: { profile, loading },
 }) => {
     useEffect(() => {
+        console.log('mounted')
         getCurrentProfile();
     }, []);
     return loading && profile === null ? (

@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Navbar from './components/Layout/Navbar';
 import Landing from './components/Layout/Landing';
 import Register from './components/auth/Register';
@@ -27,39 +27,37 @@ const App = () => {
 
     return (
         <Provider store={store}>
-            <Router>
+            <BrowserRouter>
                 <Fragment>
                     <Navbar />
-                    <Routes>
-                        <Route exact path='/' element={<Landing />} />
-                    </Routes>
-                    <section className='container'>
-                        <Alert />
-                        <Routes>
+                    <Switch>
+                        <Route exact path='/' component={Landing} />
+                        <section className='container'>
+                            <Alert />
                             <Route
                                 exact
                                 path='/register'
-                                element={<Register />}
+                                component={Register}
                             ></Route>
                             <Route
                                 exact
                                 path='/login'
-                                element={<Login />}
+                                component={Login}
                             ></Route>
-                            <Route
+                            <PrivateRoute
                                 exact
                                 path='/dashboard'
-                                element={<PrivateRoute><Dashboard /></PrivateRoute>}
-                            ></Route>
-                            <Route
+                                component={Dashboard}
+                            ></PrivateRoute>
+                            <PrivateRoute
                                 exact
                                 path='/create-profile'
-                                element={<PrivateRoute><CreateProfile /></PrivateRoute>}
-                            ></Route>
-                        </Routes>
-                    </section>
+                                component={CreateProfile}
+                            ></PrivateRoute>
+                        </section>
+                    </Switch>
                 </Fragment>
-            </Router>
+            </BrowserRouter>
         </Provider>
     );
 };
