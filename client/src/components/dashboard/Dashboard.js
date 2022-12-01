@@ -57,6 +57,7 @@ const Dashboard = ({
     );
 };
 
+//Prop types for validation
 Dashboard.propTypes = {
     getCurrentProfile: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired,
